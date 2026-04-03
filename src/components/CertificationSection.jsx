@@ -12,6 +12,9 @@ const pdfCertifications = [
 ];
 
 export default function CertificationSection({ title = "My Certifications", showLabel = true }) {
+  const isLocal = typeof window !== 'undefined' && 
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
   return (
     <section className="certifications section">
       <div className="container">
@@ -23,39 +26,46 @@ export default function CertificationSection({ title = "My Certifications", show
         </ScrollReveal>
 
         <div className="certifications__grid">
-          {pdfCertifications.map((pdf, i) => (
-            <ScrollReveal key={`pdf-${i}`} delay={0.1 * i} variant="scale-up">
-              <div className="pdf-viewer glass-card certification-card">
-                <div className="certification-card__header">
-                    <ShieldCheck size={24} className="certification__icon" style={{ color: 'var(--accent-primary)' }} />
-                    <h3 className="certification-card__name">
-                        {pdf.name}
-                    </h3>
-                    <a 
-                      href={pdf.file} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="certification-card__link"
-                      style={{ 
-                        marginLeft: 'auto', 
-                        fontSize: '0.85rem', 
-                        color: 'var(--accent-primary)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px'
-                      }}
-                    >
-                      View Full
-                    </a>
+          {pdfCertifications.map((pdf, i) => {
+            const fullUrl = typeof window !== 'undefined' ? window.location.origin + pdf.file : '';
+            const viewerUrl = isLocal 
+              ? pdf.file 
+              : `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+
+            return (
+              <ScrollReveal key={`pdf-${i}`} delay={0.1 * i} variant="scale-up">
+                <div className="pdf-viewer glass-card certification-card">
+                  <div className="certification-card__header">
+                      <ShieldCheck size={24} className="certification__icon" style={{ color: 'var(--accent-primary)' }} />
+                      <h3 className="certification-card__name">
+                          {pdf.name}
+                      </h3>
+                      <a 
+                        href={pdf.file} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="certification-card__link"
+                        style={{ 
+                          marginLeft: 'auto', 
+                          fontSize: '0.85rem', 
+                          color: 'var(--accent-primary)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        View Full
+                      </a>
+                  </div>
+                  <iframe
+                    src={viewerUrl}
+                    title={pdf.name}
+                    className="certification-card__iframe"
+                  />
                 </div>
-                <iframe
-                  src={pdf.file}
-                  title={pdf.name}
-                  className="certification-card__iframe"
-                />
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>
