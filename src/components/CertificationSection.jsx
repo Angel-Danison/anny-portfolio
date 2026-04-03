@@ -4,11 +4,11 @@ import { ShieldCheck } from 'lucide-react';
 import './CertificationSection.css';
 
 const pdfCertifications = [
-  { name: 'IBM AI Certification', file: '/IBMDesign20260314-33-i293sc.pdf' },
-  { name: 'IBM CyberSecurity Certification', file: '/IBMDesign20260314-33-a827xu.pdf' },
-  { name: 'IBM Component 1', file: '/IBMDesign20260314-33-cl00dk.pdf' },
-  { name: 'IBM Component 2', file: '/IBMDesign20260314-33-78gf6e.pdf' },
-  { name: 'Project Management Fundamentals', file: '/ProjectManagementFundamentals_Badge20260314-33-9ytexb.pdf' },
+  { name: 'IBM AI Certification', file: '/IBMDesign20260314-33-i293sc.pdf#view=FitH' },
+  { name: 'IBM CyberSecurity Certification', file: '/IBMDesign20260314-33-a827xu.pdf#view=FitH' },
+  { name: 'IBM Component 1', file: '/IBMDesign20260314-33-cl00dk.pdf#view=FitH' },
+  { name: 'IBM Component 2', file: '/IBMDesign20260314-33-78gf6e.pdf#view=FitH' },
+  { name: 'Project Management Fundamentals', file: '/ProjectManagementFundamentals_Badge20260314-33-9ytexb.pdf#view=FitH' },
 ];
 
 export default function CertificationSection({ title = "My Certifications", showLabel = true }) {

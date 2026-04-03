@@ -37,21 +37,26 @@
   }
   
   .certification-card__iframe {
-    height: 350px;
+    height: 400px; /* Keep it taller on tablets */
   }
 }
 
 @media (max-width: 480px) {
   .certifications__grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
   
+  .certification-card {
+    padding: 12px; /* Less padding to give iframe more room */
+  }
+
   .certification-card__iframe {
-    height: 300px;
+    height: 450px; /* Make it TALLER on mobile so content is less zoomed out */
+    min-height: 450px;
   }
 
   .certification-card__name {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
