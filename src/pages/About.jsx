@@ -75,7 +75,7 @@ export default function About() {
               <div className="about-hero__image-wrapper">
                 <div className="about-hero__image">
                   <img
-                    src="./public/profile.jpeg"
+                    src="/profile.jpeg"
                     alt="Profile"
                     className="about-hero__image-img"
                   />
