@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import { ShieldCheck } from 'lucide-react';
+import './CertificationSection.css';
 
 const pdfCertifications = [
   { name: 'IBM AI Certification', file: '/IBMDesign20260314-33-i293sc.pdf' },
@@ -21,27 +22,20 @@ export default function CertificationSection({ title = "My Certifications", show
           </h2>
         </ScrollReveal>
 
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
-          gap: '32px', 
-          marginTop: '48px' 
-        }}>
+        <div className="certifications__grid">
           {pdfCertifications.map((pdf, i) => (
             <ScrollReveal key={`pdf-${i}`} delay={0.1 * i} variant="scale-up">
-              <div className="pdf-viewer glass-card" style={{ padding: '16px', overflow: 'hidden' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div className="pdf-viewer glass-card certification-card">
+                <div className="certification-card__header">
                     <ShieldCheck size={24} className="certification__icon" style={{ color: 'var(--accent-primary)' }} />
-                    <h3 className="certification__name" style={{ margin: 0, fontSize: '1.1rem' }}>
+                    <h3 className="certification-card__name">
                         {pdf.name}
                     </h3>
                 </div>
                 <iframe
                   src={pdf.file}
                   title={pdf.name}
-                  width="100%"
-                  height="400px"
-                  style={{ border: 'none', borderRadius: 'var(--radius-sm)' }}
+                  className="certification-card__iframe"
                 />
               </div>
             </ScrollReveal>
