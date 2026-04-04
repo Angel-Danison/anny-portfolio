@@ -54,11 +54,12 @@
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-size: clamp(2rem, 8vw, 4.5rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 24px;
   letter-spacing: -1px;
+  word-wrap: break-word;
 }
 
 .typing-text {
@@ -329,8 +330,9 @@
 /* ===== CTA ===== */
 .cta__card {
   text-align: center;
-  padding: 80px 40px;
+  padding: 60px 24px;
   background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(0, 212, 170, 0.05));
+  width: 100%;
 }
 
 .cta__title {
@@ -377,7 +379,23 @@
 }
 
 @media (max-width: 480px) {
+  .hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .hero__actions a,
+  .hero__actions .btn-primary,
+  .hero__actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
   .stats__grid {
     grid-template-columns: 1fr;
+  }
+
+  .featured__card-image {
+    height: 180px;
   }
 }

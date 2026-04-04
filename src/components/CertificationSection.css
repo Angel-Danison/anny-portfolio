@@ -1,8 +1,9 @@
 .certifications__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 100%, 450px), 1fr));
   gap: 32px;
   margin-top: 48px;
+  width: 100%;
 }
 
 .certification-card {
@@ -32,12 +33,12 @@
 /* Responsive Media Queries */
 @media (max-width: 768px) {
   .certifications__grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   
   .certification-card__iframe {
-    height: 400px; /* Keep it taller on tablets */
+    height: 350px; 
   }
 }
 

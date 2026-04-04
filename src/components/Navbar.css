@@ -27,7 +27,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
   font-weight: 700;
 }
 
@@ -141,6 +141,7 @@
   border-left: 1px solid var(--border-glass);
   z-index: 999;
   padding: 100px 32px 32px;
+  overflow-x: hidden;
 }
 
 .mobile-menu__links {

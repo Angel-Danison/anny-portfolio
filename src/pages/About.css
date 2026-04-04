@@ -195,9 +195,10 @@
 /* ===== Certifications ===== */
 .certifications__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 100%, 400px), 1fr));
   gap: 24px;
   margin-top: 48px;
+  width: 100%;
 }
 
 .certification__item {
@@ -267,7 +268,8 @@
 
 @media (max-width: 600px) {
   .tech-stack__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .about-hero__highlights {
@@ -277,5 +279,9 @@
 
   .certifications__grid {
     grid-template-columns: 1fr;
+  }
+  
+  .timeline__list {
+    padding-left: 24px;
   }
 }

@@ -105,7 +105,7 @@ export default function ImageSequence() {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
+        width: '100%',
         height: '100vh',
         zIndex: 0, // Make it visible above the body background
         pointerEvents: 'none'
